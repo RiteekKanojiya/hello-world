@@ -1,8 +1,8 @@
 pipeline{
 agent any
-environment{
-    PATH= "/usr/bin/mvn:$PATH"
-}
+    tools{
+    maven 'MAVEN_HOME'
+    }
   stages{
     stage("git"){
       steps{
