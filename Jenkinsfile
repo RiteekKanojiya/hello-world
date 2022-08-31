@@ -1,7 +1,7 @@
 pipeline{
 agent any
 environment{
-    /usr/bin/mvn
+    PATH= "/usr/bin/mvn:$PATH"
 }
   stages{
     stage("git"){
