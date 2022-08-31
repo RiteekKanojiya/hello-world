@@ -1,11 +1,27 @@
 pipeline{
 agent any
+environment{
+    /usr/bin/mvn
+}
   stages{
     stage("git"){
-    steps{
-    
+      steps{
+            git 'https://github.com/RiteekKanojiya/hello-world.git'
     }
     
     }
+    
+    stage("build"){
+      steps{
+       sh "mvn -B -DskipTests clean package"    
+    }
+     stage("build"){
+      steps{
+     sshagent(['riteek']) {
+    scp
+}
+    }
+    
+    
    }
 }
