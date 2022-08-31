@@ -15,13 +15,15 @@ environment{
       steps{
        sh "mvn -B -DskipTests clean package"    
     }
-     stage("build"){
+    }
+     stage("deploy"){
       steps{
      sshagent(['riteek']) {
-    scp
+    sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@13.124.182.244:/opt/tomcat/webapp"
+    
 }
     }
+    }
     
-    
-   }
+}
 }
